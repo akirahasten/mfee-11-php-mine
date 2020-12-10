@@ -1,7 +1,26 @@
 <?php
-$nextWeek = time() + (7 * 24 * 60 * 60);
-                   // 7 days; 24 hours; 60 mins; 60 secs
-echo 'Now:       '. date('Y-m-d') ."\n";
-echo 'Next Week: '. date('Y-m-d', $nextWeek) ."\n";
-// or using strtotime():
-echo 'Next Week: '. date('Y-m-d', strtotime('+1 week')) ."\n";
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['n'])) {
+    $_SESSION['n'] = 0;
+}
+
+?>
+<!doctype html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <?php echo $_SESSION['n'];
+
+    ?>
+</body>
+
+</html>
